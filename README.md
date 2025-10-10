@@ -1,5 +1,6 @@
 **Wikipedia Search Test ()**
 
+
 In this project, I automated a search functionality on a Wikipedia-like platform using Selenium WebDriver and Java. 
 
 Here are the key highlights: 
