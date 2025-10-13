@@ -1,4 +1,3 @@
-<img width="1295" height="986" alt="image" src="https://github.com/user-attachments/assets/271c0d4d-e9e6-4ce4-a6e4-95e401fbd10b" />---
 
 # 🌐 Wikipedia Search Test (Automation Project)
 
