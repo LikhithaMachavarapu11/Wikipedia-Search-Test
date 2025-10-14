@@ -68,7 +68,7 @@ import java.util.List;
 - **WebDriverWait:** Makes Selenium wait
 - **Duration:** Waiting time setting
 - **List:** Stores many elements
-- 
+ 
 # **2️⃣ Class and Main Method**  
 public class WikiSearchTest {  
 public static void main(String[] args) {  
