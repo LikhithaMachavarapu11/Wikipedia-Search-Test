@@ -212,8 +212,6 @@ Output in Chrome
 // Find the input field with id searchInput- use (Relative) XPath Locator.  
 WebElement usernameElement = driver.findElement(By.xpath("//input[@id='searchInput']"));
 
-# **inspect the code**      
-<img width="1295" height="986" alt="image" src="https://github.com/user-attachments/assets/bbe84aea-840e-4bce-a01c-2c1874a1025a" />
 
 # **Output:**  
 Output in Chrome    
@@ -234,8 +232,6 @@ WebElement searchButton = driver.findElement(By.xpath("//button[@class='search-b
 // Click the button - use click() method.   
 searchButton.click();
 
-# **Inspect the code**  
-<img width="1283" height="988" alt="image" src="https://github.com/user-attachments/assets/674f3722-5273-40d2-bd95-941d26b7b2fa" />
 
 # **Output:**
 Output in Chrome
