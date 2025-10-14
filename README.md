@@ -126,77 +126,53 @@ WebElement usernameElement = driver.findElement(By.xpath("//input[@id='searchInp
 
 **💡 Explanation:**  This code finds the text box with id="searchInput" on the web page and stores it in a variable called usernameElement.
 
-# **7️⃣ Verify Username** 
-String expectedText = "Sarah Williams";  
-if (actualText.equals(expectedText)) {  
-System.out.println("Username is correct");  
-} else {  
-System.out.println("Incorrect username");  
-}
+# 7️⃣ Enter the text HTML in the input field  
+// Enter the text HTML in the input field.  
+  usernameElement.sendKeys("HTML");
 
-**Explanation:** Compares the text found on the page with the expected text. If both match, print "Username is correct". Otherwise, print "Incorrect username".
+**Explanation:** It  tells Selenium to type the word “HTML” into the input box on the web page automatically.
 
-**💡 Real Example:** Imagine checking if your ATM screen shows your correct name after inserting a card.
+# 8️⃣ Find the 'Search' with class name search-button
+// Find the 'Search' with class name search-button - use (Relative) XPath Locator.
+        WebElement searchButton = driver.findElement(By.xpath("//button[@class='search-button']"));
 
-# **8️⃣ Find the Balance Amount** 
-WebElement balanceAmount = driver.findElement(By.cssSelector("div[class*='balance-card']>p"));  
-actualText = balanceAmount.getText();
+**Explanation:** finds the button on the web page whose class name is “search-button” and stores it in a variable called searchButton
 
-**Explanation:** Finds the element that displays your balance amount using CSS. Reads the text and stores it again in actualText.
+# 9️⃣ Click the button 
+// Click the button - use click() method.
+        searchButton.click();
 
-# **9️⃣ Verify Initial Balance**  
-expectedText = "2000";  
-if (actualText.equals(expectedText)) {  
-System.out.println("Initial balance is correct");  
-} else {  
-System.out.println("Incorrect initial balance");  
-}
+**Explanation:** tells Selenium to click the “Search” button on the web page automatically, just like you would click it with your mouse.
 
-**Explanation:** Checks if the initial balance is 2000. If yes → prints “Initial balance is correct”, else prints “Incorrect”.
 
-**💡 Real Example:** You’re verifying that your ATM screen correctly shows ₹2000 before any withdrawal.
+# **🔟 Find All Denomination Buttons:**  
+//Wait until the search results (<div> elements) with class name result-item are loaded, for a maximum of 10 seconds  
+//use visibilityOfElementLocated() method  
+//use (Relative) XPath Locator   
+// time duration 10 seconds   
+WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));  
 
-# **🔟 Find All Denomination Buttons:**
-List<WebElement> denominationButtons = driver.findElements(By.cssSelector("ul[class^='denominations'] li"));
+// wait until the elements are displayed    
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-item']")));  
 
-**Explanation:**
-- findElements() finds multiple elements instead of just one.
-- It finds all <li> tags inside a <ul> whose class starts with “denominations”.
-- All buttons (like ₹50, ₹100, ₹200, ₹500) are stored in a list.
+//Find all the search results with class name result-item- use (Relative) XPath Locator.  
+//Print " Results Found"  
+//For example: 3 Results Found  
+// verify the display of results on the page  
 
-**💡 Example:** You now have a list of all withdrawal buttons — like all ATM options.
-
-# **1️⃣1️⃣ Click Two Buttons**  
-WebElement firstElement = denominationButtons.get(0);  
-firstElement.click();  
-WebElement secondElement = denominationButtons.get(1);  
-secondElement.click();
-
-**Explanations:**
-- .get(0) means first button, .get(1) means second button.
-- .click() simulates a mouse click on those buttons.
-
-**💡 Example:**
-You pressed ₹50 and ₹100 withdrawal buttons on an ATM — Selenium does the same here automatically.
-
-# **1️⃣2️⃣ Verify Updated Balance**  
-WebElement balanceAmount2 = driver.findElement(By.cssSelector("p[class='balance']"));  
-actualText = balanceAmount2.getText();  
-expectedText = "1850";  
-if (actualText.equals(expectedText)) {  
-System.out.println("Withdrawal App working as expected");  
-} else {  
-System.out.println("Mismatch found in balance");  
+List<WebElement> results = driver.findElements(By.xpath("//div[@class='result-item']"));  
+if (results.size()>0) {  
+System.out.println( results.size() + " Results Found" );  
 }
 
 **Explanation:**
-- After clicking buttons, the page should update the balance.
-- It finds the new balance (<p class='balance'>) and reads it.
-- If balance matches "1850", the withdrawal logic worked.
+- WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); - This creates a wait timer that makes Selenium pause for up to 10 seconds. It’s useful when the web page takes time to load or show elements.
+- wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-item']"))); - This means Selenium will wait until it can see (i.e., the element is visible on the page) a <div> element with the class "result-item". As soon as the element appears, Selenium continues to the next step.
+- List<WebElement> results = driver.findElements(By.xpath("//div[@class='result-item']")); - findElements() finds all matching elements on the page (not just the first one). Here, it searches for all <div> elements with the class "result-item". All those elements are stored in a list called results.
+- if else - “Find all result items on the page, count them, and print how many results were found.”
+  
 
-**💡 Real Example:** If you had ₹2000 and withdrew ₹150 total, your new balance is ₹1850 — Selenium is checking if that number updates correctly.
-
-# **1️⃣3️⃣ Close the Browser**
+# **1️⃣1️⃣ Close the Browser**
 driver.quit();
 
 **Explanation:** Closes the browser window.
