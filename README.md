@@ -110,20 +110,21 @@ driver.get("https://qawikisearch.ccbp.tech/");
 
 **💡 Real Example:**  If you type that URL in Chrome manually, it opens the same page. Selenium is just doing it automatically.
 
-# 6️⃣ Find the input field with id searchInput
-// Find the input field with id searchInput- use (Relative) XPath Locator.
-        WebElement usernameElement = driver.findElement(By.xpath("//input[@id='searchInput']"));
+# 6️⃣ Find the input field with id searchInput   
+// Find the input field with id searchInput- use (Relative) XPath Locator.  
+WebElement usernameElement = driver.findElement(By.xpath("//input[@id='searchInput']"));
 
+**Explanation:** This code finds the text box with id="searchInput" on the web page and stores it in a variable called usernameElement.
 
 **terms**  
 - **WebElement:** This is a data type (class) in Selenium that represents a single element (like a button, paragraph, link, input box, etc.) on a web page.    
-- **countElement:**  This is just a variable name — you can name it anything (like userNameElement or textElement).  
+- **usernameElement:**  This is just a variable name — you can name it anything (like userNameElement or textElement).  
 - **driver:** Your browser controller (created earlier by WebDriver driver = new ChromeDriver();).  
 - **.findElement():**  A Selenium method used to find a single element on the web page.
-- ****By.cssSelector("div[class *= 'details']>p"):**** Find a div tag (a section in HTML). The div should have a class name that contains the word “details.” The *= means “contains.” Means “direct child.”  Find a p (paragraph) tag that is directly inside that div.           
-- **.getText():** reads the text inside that element.
+- ****By.xpath("//input[@id='searchInput']"):**** By → means you’re using a locator to find something on the page. xpath → is one of the ways (methods) Selenium uses to locate elements in the HTML structure of a web page. So, By.xpath(...) means “find the element using its XPath address.” // → means “search anywhere in the page.” input → means look for an <input> tag (usually a textbox). [@id='searchInput'] → means the input should have an id attribute equal to searchInput.        
 
-**💡 Example:**  This line finds the name shown on the screen, like “Sarah Williams”, and stores it in actualText.
+
+**💡 Explanation:**  This code finds the text box with id="searchInput" on the web page and stores it in a variable called usernameElement.
 
 # **7️⃣ Verify Username** 
 String expectedText = "Sarah Williams";  
