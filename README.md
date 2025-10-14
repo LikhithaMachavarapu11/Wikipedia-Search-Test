@@ -5,7 +5,7 @@
 
 - **Programming Language:** Java
 - **Automation Tool:** Selenium WebDriver
-- **IDE Used:** IntelliJ IDEA / Eclipse
+- **IDE Used:** IntelliJ IDEA / VS code
 - **Browser Tested:** Google Chrome
   
 ---
