@@ -10,7 +10,7 @@
   
 ---
 
-# Before you start — prerequisites   
+# Prerequisites (what you need before running)   
 
 # **1️⃣ Installing IDE - Intellij, VS code**  
 1.Install IntelliJ on Windows - Install version 2018.3.6 version for Windows 64 bit.  
@@ -60,12 +60,15 @@ import java.time.Duration;
 import java.util.List;   
 
 **Terms**  
-- **WebDriver:** Used by Selenium to talk to any browser (Chrome, Firefox, Edge, etc.)  
-- **ChromeDriver:**	Used by Selenium to talk only to Chrome  
-- **WebElement:**	Represents a single element on a web page (like a button or paragraph).  
-- **By:**	Helps find elements (using CSS selector, ID, etc.).    
-- **List:** Used to store multiple elements together (like several buttons).
-
+- **WebDriver:** Used by Selenium to talk to any browser (Chrome, Firefox, Edge, etc.)  or Controls the browser
+- **ChromeDriver:**	Used by Selenium to talk only to Chrome  or Connects Selenium to Chrome
+- **WebElement:**	Represents a single element on a web page (like a button or paragraph).  or Represents a webpage item
+- **By:**	Helps find elements (using CSS selector, ID, etc.). or Locator to find elements
+- **ExpectedConditions:** Wait rules
+- **WebDriverWait:** Makes Selenium wait
+- **Duration:** Waiting time setting
+- **List:** Stores many elements
+- 
 # **2️⃣ Class and Main Method**  
 public class WikiSearchTest {  
 public static void main(String[] args) {  
@@ -101,15 +104,16 @@ WebDriver driver = new ChromeDriver();
 - 🚗 WebDriver = hands (it performs actions in any browser)
 
 # **5️⃣ Open the Website**     
-driver.get("https://qawithdrawal.ccbp.tech/");
+driver.get("https://qawikisearch.ccbp.tech/");
 
-**Explanation:** Tells Chrome to go to the given URL. The browser opens the Cash Withdrawal web app.
+**Explanation:** Tells Chrome to go to the given URL. 
 
 **💡 Real Example:**  If you type that URL in Chrome manually, it opens the same page. Selenium is just doing it automatically.
 
-# **6️⃣ Find the Username Element**  
-WebElement countElement = driver.findElement(By.cssSelector("div[class*='details']>p"));  
-String actualText = countElement.getText();
+# 6️⃣ Find the input field with id searchInput
+// Find the input field with id searchInput- use (Relative) XPath Locator.
+        WebElement usernameElement = driver.findElement(By.xpath("//input[@id='searchInput']"));
+
 
 **terms**  
 - **WebElement:** This is a data type (class) in Selenium that represents a single element (like a button, paragraph, link, input box, etc.) on a web page.    
