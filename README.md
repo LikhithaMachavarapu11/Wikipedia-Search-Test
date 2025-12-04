@@ -238,7 +238,7 @@ Output in Chrome
 <img width="1276" height="989" alt="image" src="https://github.com/user-attachments/assets/d64e2866-bca6-4872-b996-8aead9acbb87" />
 
 
-# 6️⃣ Verify the balance amount matches the expected amount 2000  
+# 6️⃣ Wait until the search results are displayed
 //Wait until the search results (<div> elements) with class name result-item are loaded, for a maximum of 10 seconds  
 //use visibilityOfElementLocated() method  
 //use (Relative) XPath Locator  
